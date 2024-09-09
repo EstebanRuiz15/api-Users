@@ -1,10 +1,8 @@
 package com.emazon.api_users.infraestructure.driven_rp.adapter;
 
 import java.util.Optional;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import com.emazon.api_users.domain.interfaces.IUserRepositoryPort;
 import com.emazon.api_users.domain.model.User;
 import com.emazon.api_users.infraestructure.driven_rp.mappers.UserMapper;
