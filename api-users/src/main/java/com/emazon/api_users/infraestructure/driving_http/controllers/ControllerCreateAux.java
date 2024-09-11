@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emazon.api_users.domain.interfaces.IUserService;
-import com.emazon.api_users.infraestructure.driving_http.dtos.UserDtoAddAuxBod;
+import com.emazon.api_users.infraestructure.driving_http.dtos.UserDtoAdd;
 import com.emazon.api_users.infraestructure.driving_http.mappers.UserMapperDtoUser;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -50,7 +50,7 @@ public class ControllerCreateAux {
                                                         
 })
     @PostMapping("/")
-     public ResponseEntity<Void> addAuxBod(@Valid @RequestBody  UserDtoAddAuxBod request) {
+     public ResponseEntity<Void> addAuxBod(@Valid @RequestBody  UserDtoAdd request) {
         userService.createUserAuxBod(mappertoUser.toUser(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

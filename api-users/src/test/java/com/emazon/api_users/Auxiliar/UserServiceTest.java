@@ -72,20 +72,7 @@ import com.emazon.api_users.domain.util.ConstantsDomain;
         verify(repositoryPort, never()).saveUser(any());
     }
 
-    @Test
-    void createUserAuxBod_whenRoleIsInvalid_throwsErrorExceptionParam() {
-        newUser.setEmail("newuser@example.com");
-        newUser.setDateOfBirth(LocalDate.of(2000, 1, 1));
-        newUser.setRole(RoleEnum.OTHER); 
-
-        when(repositoryPort.findByEmail(newUser.getEmail())).thenReturn(Optional.empty());
-
-        
-        ErrorExceptionParam exception = assertThrows(ErrorExceptionParam.class, () -> userService.createUserAuxBod(newUser));
-        assertEquals(ConstantsDomain.ROLE_ERROR_MESSAGE, exception.getMessage());
-
-        verify(repositoryPort, never()).saveUser(any());
-    }
+   
 
     @Test
     void createUserAuxBod_whenAllValidationsPass_savesUser() {

@@ -30,7 +30,8 @@ public final class ConstantsInfra {
     public static final String AUTHORIZATIOn="Authorization";
     public static final String BEARER="Bearer ";
     public static final String PASS_REGEX="^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$";
-
+    public static final String REGEX_Document="^[0-9]+$";
+    public static final String REGEX_CEL="^\\+?[0-9]+$";
 
 
 
