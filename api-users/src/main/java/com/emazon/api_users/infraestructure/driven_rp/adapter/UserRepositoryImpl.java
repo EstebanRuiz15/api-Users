@@ -22,13 +22,13 @@ public class UserRepositoryImpl implements IUserRepositoryPort {
         String encryptedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
         repositoryJpa.save(mapper.toEntity(user));
-        
+
     }
 
     @Override
     public Optional<User> findByEmail(String email) {
         return repositoryJpa.findByEmail(email)
-        .map(mapper::toUser);
+                .map(mapper::toUser);
     }
-    
+
 }
