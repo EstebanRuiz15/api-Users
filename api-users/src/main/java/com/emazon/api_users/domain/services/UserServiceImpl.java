@@ -32,6 +32,22 @@ public class UserServiceImpl implements IUserService {
         repositoryPort.saveUser(user);
     }
 
+    @Override
+    public void createUserClient(User user){
+        if (repositoryPort.findByEmail(user.getEmail()).isPresent()) {
+            throw new ErrorExceptionParam(ConstantsDomain.EMAIL_AL_READY_EXIST_ERROR_MESSAGE);
+        }
+
+        if (Period.between(user.getDateOfBirth(), LocalDate.now()).getYears() < ConstantsDomain.AGE_MAY) {
+            throw new ErrorExceptionParam(ConstantsDomain.AGE_MAY_ERROR);
+        }
+
+        user.setRole(RoleEnum.CLIENT);
+
+        repositoryPort.saveUser(user);
+
+    }
+
    
 
 }

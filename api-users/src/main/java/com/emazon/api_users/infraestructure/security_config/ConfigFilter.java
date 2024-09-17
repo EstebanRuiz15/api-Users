@@ -28,7 +28,7 @@ public class ConfigFilter {
         return http
         .csrf(csrf -> csrf.disable()) 
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/auth/login").permitAll()   
+            .requestMatchers("/auth").permitAll()   
             .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()   
             .requestMatchers("/aux/").hasRole("ADMIN")
             .anyRequest()

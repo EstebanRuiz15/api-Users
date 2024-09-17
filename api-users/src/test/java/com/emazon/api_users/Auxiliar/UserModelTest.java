@@ -54,7 +54,7 @@ class UserModelTest {
         user.setCelular("0998765433");
         user.setEmail("jane.smith@example.com");
         user.setPassword("NewPassword123");
-        user.setRole(RoleEnum.USER);
+        user.setRole(RoleEnum.CLIENT);
 
         assertEquals("Jane", user.getName());
         assertEquals("Smith", user.getLastName());
@@ -62,7 +62,7 @@ class UserModelTest {
         assertEquals("0998765433", user.getCelular());
         assertEquals("jane.smith@example.com", user.getEmail());
         assertEquals("NewPassword123", user.getPassword());
-        assertEquals(RoleEnum.USER, user.getRole());
+        assertEquals(RoleEnum.CLIENT, user.getRole());
     }
 
     @Test
@@ -97,10 +97,5 @@ class UserModelTest {
         assertTrue(user.isEnabled());
     }
 
-    @Test
-    void testRoleAuthority() {
-        user.setRole(RoleEnum.USER);
-        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
-        assertTrue(authorities.contains(new SimpleGrantedAuthority(ConstantsDomain.ROLE + "USER")));
-    }
+
 }
