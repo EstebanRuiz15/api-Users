@@ -22,7 +22,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/aux")
 @Service 
 @AllArgsConstructor
-public class ControllerCreateAux {
+public class ControllerCreateUsers {
     private final IUserService userService;
     private final UserMapperDtoUser mappertoUser;
 
@@ -51,7 +51,7 @@ public class ControllerCreateAux {
 })
     @PostMapping("/")
      public ResponseEntity<Void> addAuxBod(@Valid @RequestBody  UserDtoAdd request) {
-        userService.createUserAuxBod(mappertoUser.toUser(request));
+        userService.createUserClient(mappertoUser.toUser(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     

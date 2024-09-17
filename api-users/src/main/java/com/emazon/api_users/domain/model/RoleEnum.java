@@ -2,7 +2,7 @@ package com.emazon.api_users.domain.model;
 
 public enum RoleEnum {
     ADMIN,
-    USER,
+    CLIENT,
     AUX_BODEGA,
     OTHER
 }
