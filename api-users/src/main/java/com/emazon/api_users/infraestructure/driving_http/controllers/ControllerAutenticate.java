@@ -70,9 +70,10 @@ public class ControllerAutenticate {
                     "    - 'Password': cannot be null and check eith some parameters.")
 
     })
+
     @PostMapping("/register")
     public ResponseEntity<Void> register(@Valid @RequestBody UserDtoAdd request) {
-        userService.createUserAuxBod(mappertoUser.toUser(request));
+        userService.createUserClient(mappertoUser.toUser(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
